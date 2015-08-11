@@ -101,15 +101,4 @@ public class AppTest {
     	
     	assertSame(test,test2);
     }
-    
-    
-    @T
-    public  void additionStringsTest()
-    {
-        TestClass test = new TestClass();
-        
-        String s= test.concatStrings("Hello, ", "there.");
-        String expected = "Hello, there.";
-        assertEquals("Должен конкатинировать строки", expected, s);
-    };
 }

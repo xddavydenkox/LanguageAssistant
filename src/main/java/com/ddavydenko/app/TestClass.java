@@ -23,30 +23,29 @@ public class TestClass {
        return false;
     }
 
-    public static int addThree(int number)
-    {
+    public static int addThree(int number) {
         if(number>=0)
         {
         return number+=3;
         }
         return -1;
     }
-    
+
     public static int doublesTheValue(int number) {
     	
         return number+=number;
     }
-    
-    public static int[] reverseArray(int[] arr) {
-        int temp = 0;
-    	if(arr.length!=0 || arr.length!=1) {
-    		for(int i=0; i<arr.length/2; i++) {
-        		temp = arr[i];
-        		arr[i]=arr[arr.length-i-1];
-        		arr[arr.length-i-1] = temp;
-        	}
-        	return arr;
-    	}
-    	else return arr;
-    }
+
+//    public static int[] reverseArray(int[] arr) {
+//        int temp = 0;
+//    	if(arr.length!=0 || arr.length!=1) {
+//    		for(int i=0; i<arr.length/2; i++) {
+//        		temp = arr[i];
+//        		arr[i]=arr[arr.length-i-1];
+//        		arr[arr.length-i-1] = temp;
+//        	}
+//        	return arr;
+//    	}
+//    	else return arr;
+//    }
 }

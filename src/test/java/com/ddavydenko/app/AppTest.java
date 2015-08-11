@@ -51,7 +51,7 @@ public class AppTest {
     }
     
     //Checks if method reverses the given array.
-    @Test
+   /* @Test
     public void reverseArrayTest() {
     	TestClass test = new TestClass();
     	
@@ -79,7 +79,7 @@ public class AppTest {
     	test.reverseArray(testArray);
     	
     	assertNotNull(test);
-    }
+    }*/
     
     //Just playing tiwh asserts of JUnit
     @Test

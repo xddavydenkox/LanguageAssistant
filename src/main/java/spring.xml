@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www/springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <bean id="triangle" class="com.ddavydenko.app.Triangle" >
+        <property name="type" value="${triangle.type}" />
+        <property name="color" value="${triangle.color}" />
+        <property name="zeroCoordinates" ref="zeroPoint" />
+        <property name="secondCoordinate">
+            <bean id="point2" class="com.ddavydenko.app.Point">
+                <property name="coordinateX" value="0" />
+                <property name="coordinateY" value="10" />
+            </bean>
+        </property>
+        <property name="thirdCoordinate">
+            <bean id="point3" class="com.ddavydenko.app.Point">
+                <property name="coordinateX" value="${point3.coordinateX}" />
+                <property name="coordinateY" value="${point3.coordinateY}" />
+            </bean>
+        </property>
+    </bean>
+    <bean id="circle" class="com.ddavydenko.app.Circle" >
+        <property name="color" value="pink" />
+        <property name="type" value="round" />
+    </bean>
+    <bean id="circle1" class="com.ddavydenko.app.Circle" >
+        <constructor-arg index="0" value ="very round" />
+        <constructor-arg index="1" value ="green" />
+    </bean>
+    <bean id="square" class="com.ddavydenko.app.Square">
+        <property name="anglesNumber" value="4" />
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+        <property name="location" value="triangle.properties" />
+    </bean>
+    <bean id="zeroPoint" class="com.ddavydenko.app.Point" >
+        <property name="coordinateX" value="${zeroPoint.coordinateX}" />
+        <property name="coordinateY" value="${zeroPoint.coordinateY}" />
+    </bean>
+    
+</beans>

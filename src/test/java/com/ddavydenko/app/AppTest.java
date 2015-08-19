@@ -63,10 +63,12 @@ public class AppTest {
     	int[] expectedArray3 = {};
     	
     	int[] actualArray = test.reverseArray(testArray);
+    	int[] actualArray2 = test.reverseArray(testArray2);
+    	int[] actualArray3 = test.reverseArray(testArray3);
     	
     	assertArrayEquals(expectedArray, actualArray);
-    	assertArrayEquals(testArray2,expectedArray2);
-    	assertArrayEquals(testArray3,expectedArray3);
+    	assertArrayEquals(expectedArray2,actualArray2);
+    	assertArrayEquals(expectedArray3,actualArray3);
     }
     
     //Checks if method throws NullPointerException and if the test object is not null

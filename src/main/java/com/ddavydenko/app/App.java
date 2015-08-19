@@ -1,7 +1,10 @@
 package com.ddavydenko.app;
 
-import org.springframework.context.ApplicationContext;
+import org.hibernate.*;
+import org.springframework.context.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import domains.EngWords;
 
 /**
  * Hello world!
@@ -11,17 +14,20 @@ public class App
 {
     public static void main( String[] args ) {
        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-       Triangle triangle = (Triangle) context.getBean("triangle");
-       triangle.draw();
+       SessionFactory sessionFactory =  (SessionFactory) context.getBean("sessionFactory");
+       Session session = sessionFactory.openSession();
+       Transaction tr = session.beginTransaction();
        
-       Circle circle = (Circle) context.getBean("circle");
-       circle.draw();
        
-       Shape shape = (Shape) context.getBean("square");
-       shape.draw();
+       EngWords words = new EngWords();
        
-       Shape shape1 = (Shape) context.getBean("circle1");
-       shape1.draw();
-
-    }
+       words.setCategory("Numbers");
+       words.setTopic("1-10");
+       words.setRusword("один");
+       words.setEngword("one");
+       
+       session.save(words);
+       tr.commit();
+       session.close();
+       }
 }

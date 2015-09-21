@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <query name="com.ddavydenko.app.domains.Q_GET_WORDS_BY_CATEGORY">
+        <![CDATA[
+            FROM EngWords where category = (:category)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_WORDS_BY_TOPIC">
+        <![CDATA[
+            FROM EngWords where topic = (:topic)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_WORDS_BY_ENGWORD">
+        <![CDATA[
+            FROM EngWords where engWord = (:engWord)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_WORDS_BY_RUSWORD">
+        <![CDATA[
+            FROM EngWords where rusWord = (:rusWord)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_ENG_AND_RUS_WORDS">
+         <![CDATA[
+            SELECT ew.engWord as engWord, ew.rusWord as rusWord FROM EngWords as ew
+        ]]>
+<!--          <![CDATA[
+            SELECT UPPER(CONCAT(ew.engWord, ' - ', ew.rusWord)) FROM EngWords ew WHERE id < 13 and ew.category in ('RGB','Color')
+        ]]> -->
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_DELETE_CATEGORY">
+        <![CDATA[
+            DELETE EngWords where category = :category
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_DELETE_TOPIC">
+        <![CDATA[
+            DELETE EngWords where category = (:category) AND topic = (:topic)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_DELETE_WORD">
+        <![CDATA[
+            DELETE EngWords where category = (:category) AND topic = (:topic) AND engWord = (:engWord)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_TOTAL_LENGTH">
+        <![CDATA[
+            SELECT COUNT(*) as size from EngWords
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_ALL_CATEGORIES">
+         <![CDATA[
+            SELECT DISTINCT ew.category as category FROM EngWords as ew ORDER BY category
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_TOPIC_LIST">
+         <![CDATA[
+            SELECT DISTINCT ew.topic as topic FROM EngWords as ew where category = (:category) ORDER BY topic
+        ]]>
+    </query>
+</hibernate-mapping>

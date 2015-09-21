@@ -1,0 +1,81 @@
+<div class="container" id="center">
+    <div class="row">
+    </br>
+        <div class="col-lg-3 col-md-3 col-sm-3" id="sidePart">
+            <h3>Choose the category:</h3>
+            <div class="list-group" data-ng-repeat="category in categories">
+                <button data-ng-click="getTopicList(category.category); getUniqueTopicList(category.category)" type="button" class="list-group-item btn-success">
+                <span class="badge">{{uniqueTopics.length}} topics</span>
+                {{ category.category }}</button>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9" id="mainPart">
+	        <div data-ng-hide="notVisible">
+	             <h3>Please, chose the topic:<br></h3>
+	            <div class="btn-group" data-ng-repeat="topic in uniqueTopics">
+	                
+	                <button data-ng-click="getWordsByTopic(topic.topic)" class="btn">{{ topic.topic }}</button>
+	            </div>
+	            <h2>List of words{{currentCategory}} {{currentTopic}}:</h2>
+	            <table class="table table-responsive table-hover" >
+	                <thead>
+	                    <tr>
+	                        <th>Id</th>
+	                        <th>Category</th>
+	                        <th>Topic</th>
+	                        <th>English</th>
+	                        <th>Russian</th>
+	                    </tr>
+	                </thead>
+	                <tr data-ng-repeat="words in allWordsByCategory">
+	                    <td>{{words.id}}</td>
+	                    <td>{{words.category}}</td>
+	                    <td>{{words.topic}}</td>
+	                    <td>{{words.engword}}</td>
+	                    <td>{{words.rusword}}</td>
+	                </tr>
+	            </table>
+	           <div data-ng-hide="buttonIsHidden">
+	               <button data-ng-click="shuffleArray(allWordsByTopic);getWordsOneByOne(allWordsByTopic)" class="btn btn-large btn-block btn-success beginButton" type="button"> Begin test!</button>
+               </div>
+
+            </div>
+            <div data-ng-hide="testSectionNonVisible">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                            <label class="col-sm-2 control-label">Russian word:</label>
+                            <div class="col-sm-10" >
+                                <input type="text" value="{{rusWord}}">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">English word:</label>
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Your translation..." data-ng-model="actualEngWord">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <button data-ng-click="compareTranslation(); getWordsOneByOne(allWordsByTopic); " type="submit" class="btn btn-success" data-ng-disabled="isDisabled">{{buttonName}}</button>
+                        </div>
+                    </div>
+                </form>
+                    <h1>Your mistakes:</h1>
+                    <table class="table table-responsive table-hover" >
+                    <thead>
+                        <tr>
+                            <th>English</th>
+                            <th>Russian</th>
+                        </tr>
+                    </thead>
+                    
+                    <tr data-ng-repeat="word in wrongTranslationList">
+                        <td>{{word.engword}}</td>
+                        <td>{{word.rusword}}</td>
+                        <td><button data-ng-click="removeError(word)" type="button" class="btn btn-danger">remove</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

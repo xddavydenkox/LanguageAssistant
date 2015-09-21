@@ -1,10 +1,6 @@
 package com.ddavydenko.app;
 
-import org.hibernate.*;
-import org.springframework.context.*;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import domains.EngWords;
+import java.util.Random;
 
 /**
  * Hello world!
@@ -12,22 +8,19 @@ import domains.EngWords;
  */
 public class App 
 {
+    /*private static final ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+
+    private static SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");*/
+    
     public static void main( String[] args ) {
-       ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-       SessionFactory sessionFactory =  (SessionFactory) context.getBean("sessionFactory");
-       Session session = sessionFactory.openSession();
-       Transaction tr = session.beginTransaction();
-       
-       
-       EngWords words = new EngWords();
-       
-       words.setCategory("Numbers");
-       words.setTopic("1-10");
-       words.setRusword("один");
-       words.setEngword("one");
-       
-       session.save(words);
-       tr.commit();
-       session.close();
-       }
+
+        Random randomGenerator = new Random();
+            
+            for (int i=0; i<10; i++) {
+                int randomInt = randomGenerator.nextInt(10);
+                System.out.println(randomInt);
+        }
+        
+    }
+
 }

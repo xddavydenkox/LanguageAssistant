@@ -1,0 +1,71 @@
+<div class="container" id="center">
+    <div class="row">
+    </br>
+		<div class="col-lg-3 col-md-3 col-sm-3" id="sidePart">
+		</br>
+
+       <img class="img" src="img/{{picture}}" width="270" height="345">
+       </div>
+       <div class="col-lg-9 col-md-9 col-sm-9" id="mainPart">
+            <h2>Display random words:</h2>
+            <form class="form-inline">
+			  <div class="form-group">
+			    <div class="input-group">
+			      <div class="input-group-addon">#</div>
+			      <input type="text" class="form-control"  data-ng-model="inputQuantity">
+			    </div>
+			  </div>
+			  <button type="submit" class="btn btn-primary" data-ng-click="getRandomWords(inputQuantity)"> Show words</button>
+			  <p class="help-block">Enter the quantity of random words.</p>
+			</form>
+            <table class="table table-responsive table-hover" >
+                <thead>
+                    <tr>
+                        <th><a href="" data-ng-click=" sortField = 'id'; reverse =! reverse">Id</a></th>
+                        <th><a href="" data-ng-click=" sortField = 'category'; reverse =! reverse">Category</a></th>
+                        <th><a href="" data-ng-click=" sortField = 'topic'; reverse =! reverse">Topic</a></th>
+                        <th><a href="" data-ng-click=" sortField = 'engword'; reverse =! reverse">English</a></th>
+                        <th><a href="" data-ng-click=" sortField = 'rusword'; reverse =! reverse">Russian</a></th>
+                    </tr>
+                </thead>
+                <tr data-ng-repeat="randomWord in listOfRandomWords | orderBy:sortField:reverse"> <!-- Will sort and change the order by multiple clicking -->
+				    <td>{{randomWord.id}}</td>
+				    <td>{{randomWord.category}}</td>
+                    <td>{{randomWord.topic}}</td>
+                    <td>{{randomWord.engword}}</td>
+                    <td>{{randomWord.rusword}}</td>
+				</tr>
+            </table>
+            <hr/>
+            <h2>Display words by category:</h2>
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Quantity</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="exampleInputAmount" data-ng-model="query">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" data-ng-click="">Show words</button>
+            </form>
+            <!-- <button type="button" class="btn btn-success" data-ng-click="showOneWordInfo('one')"> Get one word info</button> -->
+            <table class="table table-responsive table-hover" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category</th>
+                        <th>Topic</th>
+                        <th>English</th>
+                        <th>Russian</th>
+                    </tr>
+                </thead>
+                <tr data-ng-repeat="categoryWord in categoryWords | filter:query |orderBy:'-engword'"> <!-- Sorting in decreasing order by 'engword' -->
+                    <td>{{categoryWord.id}}</td>
+                    <td>{{categoryWord.category}}</td>
+                    <td>{{categoryWord.topic}}</td>
+                    <td>{{categoryWord.engword}}</td>
+                    <td>{{categoryWord.rusword}}</td>
+                </tr>
+            </table>
+       </div>
+    </div>
+</div>

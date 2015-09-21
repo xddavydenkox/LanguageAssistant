@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <query name="com.ddavydenko.app.domains.Q_GET_ALL_SONGS">
+        <![CDATA[
+            FROM EngSongs
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_SONGS_BY_SINGER">
+        <![CDATA[
+            FROM EngSongs where singerNameEng = (:singer)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_SONGS_BY_SONG">
+        <![CDATA[
+            FROM EngSongs where songNameEng = (:songName)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_SONG_BY_SINGER_AND_SONG">
+        <![CDATA[
+            FROM EngSongs where singerNameEng = (:singerName) and songNameEng = (:songName)
+        ]]>
+    </query>
+    <query name="com.ddavydenko.app.domains.Q_GET_SINGER_AND_SONG_NAME">
+        <![CDATA[
+            SELECT es.songNameEng, es.singerNameEng FROM EngSongs as es
+        ]]>
+    </query>
+</hibernate-mapping>

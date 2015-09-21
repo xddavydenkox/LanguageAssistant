@@ -1,2 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/ddavydenko/app/App.java=UTF-8
+encoding//src/main/java/com/ddavydenko/app/restful/EngSongResource.java=UTF-8
+encoding//src/main/java/com/ddavydenko/app/restful/EngWordsResource.java=UTF-8
+encoding//src/main/webapp/index.html=UTF-8
+encoding//src/test/java/com/ddavydenko/app/dao/EngWordsDaoIT.java=UTF-8
+encoding//src/test/java/com/ddavydenko/app/services/EngWordsServiceImplTest.java=UTF-8

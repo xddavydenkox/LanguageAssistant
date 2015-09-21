@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="lib/twitter-bootstrap/3.3.5/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body data-ng-app="plsApp" data-ng-strict-di>
+    <nav data-pls-header class="navigation"></nav>
+    <section class="view-container">
+        <div data-ng-view class="view-frame"></div>
+    </section>
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/1.4.5/angular-route.min.js"></script>
+    <script src="lib/angular-resource/1.4.5/angular-resource.min.js"></script>
+    <script src="lib/ui-bootstrap/0.13.4/ui-bootstrap-tpls-0.13.4.min.js"></script>
+
+    <script src="js/app/app.js"></script>
+    <script src="js/app/services/services.js"></script>
+    <script src="js/app/controllers/controllers.js"></script>
+    <script src="js/app/directives/pls-header.js"></script>
+</body>
+</html>

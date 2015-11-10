@@ -26,7 +26,6 @@ public abstract class AbstractEntity implements Serializable{
         return getId() != null &&
             getId().equals(entity.getId());
         
-        
 
     }
 }

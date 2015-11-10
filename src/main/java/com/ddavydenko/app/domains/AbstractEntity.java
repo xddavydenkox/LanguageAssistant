@@ -21,16 +21,12 @@ public abstract class AbstractEntity implements Serializable{
         if (o == null || getClass() != o.getClass())
             return false;
 
+
         AbstractEntity entity = (AbstractEntity) o;
 
         return getId() != null &&
             getId().equals(entity.getId());
         
         
-        
-        
-        
-        
-
     }
 }
